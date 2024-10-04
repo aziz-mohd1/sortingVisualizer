@@ -212,33 +212,28 @@ const insertionSort = (arr) => {
 };
 
 
-sortingDropdown.addEventListener("change", ()=>{
-    let selectedSortingTechnique = sortingDropdown.value;
-    console.log(selectedSortingTechnique);
+function sortingProcess(sortAlgo, algoText, timeSpace){
+    let copyArr = [...arr];           
+    let moves = sortAlgo(copyArr);          
+    animate(moves);
+    algoName.innerText = algoText;
+    timeAndSpaceComplexity(timeSpace);
+}
+
+let selectedSortingTechnique = null; // nothing is there in dropdown
+
+// Handle dropdown change
+sortingDropdown.addEventListener("change", () => {
+    selectedSortingTechnique = sortingDropdown.value;
+});
+
+sortBtn.addEventListener("click", ()=>{
     if(selectedSortingTechnique === "BubbleSort"){
-        sortBtn.addEventListener("click",()=>{
-            let copyArr = [...arr];           
-            let moves = bubbleSort(copyArr);          
-            animate(moves);
-            algoName.innerText = "Bubble Sort";
-            timeAndSpaceComplexity("bubbleSort");
-        });
+        sortingProcess(bubbleSort, "Bubble Sort", "bubbleSort");
     }else if (selectedSortingTechnique === "SelectionSort") {
-        sortBtn.addEventListener("click", () => {
-            let copyArr = [...arr];
-            let moves = selectionSort(copyArr);
-            animate(moves);
-            algoName.innerText = "Selection Sort";
-            timeAndSpaceComplexity("selectionSort");
-        });
+        sortingProcess(bubbleSort, "Selection Sort", "selectionSort");
     } else if (selectedSortingTechnique === "InsertionSort") {
-        sortBtn.addEventListener("click", () => {
-            let copyArr = [...arr];
-            let moves = insertionSort(copyArr);
-            animate(moves);
-            algoName.innerText = "Insertion Sort";
-            timeAndSpaceComplexity("insertionSort");
-        });
+        sortingProcess(bubbleSort, "Insertion Sort", "insertionSort");
     }
 });
 
@@ -288,13 +283,13 @@ const animate = (moves)=>{
 
 
 function timeAndSpaceComplexity(algo){
-    bestTC.innerText = `${timeComplexity.bubbleSort[0]}`;
-    averageTC.innerText = `${timeComplexity.bubbleSort[1]}`;
-    worstTC.innerText = `${timeComplexity.bubbleSort[2]}`;
+    bestTC.innerText = `${timeComplexity[algo][0]}`;
+    averageTC.innerText = `${timeComplexity[algo][1]}`;
+    worstTC.innerText = `${timeComplexity[algo][2]}`;
     
-    bestSC.innerText = `${spaceComplexity.bubbleSort[0]}`;
-    averageSC.innerText = `${spaceComplexity.bubbleSort[1]}`;
-    worstSC.innerText = `${spaceComplexity.bubbleSort[2]}`;
+    bestSC.innerText = `${spaceComplexity[algo][0]}`;
+    averageSC.innerText = `${spaceComplexity[algo][1]}`;
+    worstSC.innerText = `${spaceComplexity[algo][2]}`;
 }
 
 

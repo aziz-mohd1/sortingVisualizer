@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="./output.css">
 </head>
 <body>
-    <div class="wrapper w-full h-[100vh] p-3 flex overflow-hidden bg-[#222629] text-white">
+    <div class="wrapper w-full h-[100vh] p-3 flex overflow-hidden text-white bg-[#080808]">
         <!-- left section -->
-        <section class="leftSection w-[25%] h-full rounded-l-xl border-zinc-400 border-s-2 shadow-2xl bg-[#474b4f]">
+        <section class="leftSection w-[25%] h-full rounded-l-xl border-zinc-400 border-s-2 shadow-2xl  bg-[#171717]">
             <!-- heading -->
-            <h2 class="text-[3vw] text-center">Sorting</h2>
-            <h3 class="text-center mt-[-1rem]">visualizer</h3>
+            <h2 class="heading text-[4rem] text-center font-bold ">Sorting</h2>
+            <h3 class="heading text-[1.5rem] text-center mt-[-1.5rem] ">visualizer</h3>
 
             <!-- size of array -->
             <div class="slider_buttons w-[90%] h-[85%] mx-auto pt-7">
@@ -21,7 +21,7 @@
 
                     <label for="sizeOfArray" class="pb-3">Size of the Array: </label>
 
-                    <div class="box flex justify-center items-center w-full h-full shadow-backLight p-2 rounded-md mt-[-0.5rem] mb-[-0.1rem]">
+                    <div class="box flex justify-center items-center w-full h-full  p-2 rounded-md mt-[-0.5rem] mb-[-0.1rem] shadow-[0_5px_10px_gray]">
 
                         <input type="range" class="slider1 w-[80%] h-[10px] mr-2 ml-3 rounded-lg appearance-none outline-none shadow-customLight" min="5" max="100" value = "20">
 
@@ -39,7 +39,7 @@
 
                     <label for="speedOfAlgorithm" class="pb-3 mb-[-0.5rem]">Speed of the Algorithm: </label>
 
-                    <div class="box flex justify-center items-center w-full h-full shadow-backLight p-2 rounded-md">
+                    <div class="box flex justify-center items-center w-full h-full p-2 rounded-md shadow-[0_5px_10px_gray]">
 
                         <input type="range" class="slider2 w-[80%] h-[10px] mr-2 ml-3 rounded-lg appearance-none outline-none shadow-customLight" min="1" max="5" value = "2" step="1">
 
@@ -67,7 +67,7 @@
                     <button class="StartSorting bg-[#86C232] w-full h-[10%] rounded-md mt-4 text-white mb-[-0.5rem]">Start Sorting!</button>
 
                     <!-- Author name -->
-                    <div class="author mt-[4rem] text-center text-[0.9rem]">Developed with 💖 by <em><a href="#">Mohd Azizullah</a></em></div>
+                    <div class="author mt-[1.8rem] text-center text-[0.9rem]">Developed with 💖 by <em><a href="#">Mohd Azizullah</a></em></div>
                 </div>
                 
             </div>
@@ -107,6 +107,6 @@
         </section>
     </div>
 
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
 </body>
 </html>

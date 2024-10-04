@@ -10,5 +10,14 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.bg-clip-text': {
+          '-webkit-background-clip': 'text',
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 }

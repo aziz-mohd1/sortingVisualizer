@@ -10,6 +10,33 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.wrapper{
+    box-shadow: inset 0px 4px 6px rgba(255, 255, 255, 0.1), 0px 0px 10px rgba(0, 0, 0, 0.5); /* Inner shadow for the entire wrapper */
+}
+
+.leftSection{
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.8), -2px -2px 8px rgba(255, 255, 255, 0.05); /* 3D shadow effect */
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.leftSection:hover {
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.9), -4px -4px 10px rgba(255, 255, 255, 0.1); /* Stronger shadow on hover */
+  transform: translateY(-4px); /* Slight upward lift on hover */
+}
+
+.heading{
+    background: linear-gradient(to right, red, blue);
+    text-shadow: 0 0 60px rgba(255, 94, 0, 0.5);
+    color: transparent;
+    -webkit-background-clip: text;
+    animation: anime 2s infinite alternate;   
+}
+
+@keyframes anime {
+    100%{
+        text-shadow: 0 0 60px rgba(255, 94, 0, 0.5);
+    }
+}
 
 .slider1::-webkit-slider-thumb, .slider2::-webkit-slider-thumb{
     width: 1.5rem;
