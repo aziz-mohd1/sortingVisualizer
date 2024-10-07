@@ -20,6 +20,30 @@ let bestSC = document.querySelector(".bestSC");
 let averageSC = document.querySelector(".averageSC");
 let worstSC = document.querySelector(".worstSC");
 
+let bwToggleBtn = document.querySelector(".blackWhiteToggleBtn");
+let innerToggleBtn = document.querySelector(".innerToggleBtn");
+let wrapper = document.querySelector(".wrapper");
+
+let color = true;
+bwToggleBtn.addEventListener("click", ()=>{
+    if(color){
+        bwToggleBtn.classList.remove("justify-start");
+        bwToggleBtn.classList.add("justify-end");
+        bwToggleBtn.style.backgroundColor = "white";
+        innerToggleBtn.style.backgroundColor = "black";
+        wrapper.style.backgroundColor = "black";
+        color = false;
+    }else{
+        bwToggleBtn.classList.remove("justify-end");
+        bwToggleBtn.classList.add("justify-start");
+        bwToggleBtn.style.backgroundColor = "black";
+        innerToggleBtn.style.backgroundColor = "white";
+        wrapper.style.backgroundColor = "#C87AFF";
+        color = true;
+    }
+    
+});
+
 let timeComplexity = {
     bubbleSort : ["O(n)", "O(n^2)", "O(n^2)"],
     selectionSort : ["O(n^2)", "O(n^2)", "O(n^2)"],
@@ -87,9 +111,9 @@ function showBars(move){
         bar.style.height = `${arr[i]*100}%`;
         bar.classList.add("bar");
 
-        if(move && move.indices.includes(i)){
-            bar.style.backgroundColor = move.type == "swap" ? "red" : "blue";
-        }
+        // if(move && move.indices.includes(i)){
+        //     bar.style.backgroundColor = move.type == "swap" ? "red" : "blue";
+        // }
 
         if (move) {
             if (move.type === "swap" && move.indices.includes(i)) {
@@ -211,6 +235,131 @@ const insertionSort = (arr) => {
     return moves;
 };
 
+// Merge Sort
+// const mergeSort = (arr)=>{
+//     let moves = [];
+
+//     const merge = (v, left, mid, right) => {
+//         let n1 = mid - left + 1;
+//         let n2 = right - mid;
+    
+//         // Temporary arrays to hold the two halves
+//         let L = new Array(n1);
+//         let R = new Array(n2);
+    
+//         // Copy data to temp arrays L[] and R[]
+//         for (let i = 0; i < n1; i++) L[i] = v[left + i];
+//         for (let j = 0; j < n2; j++) R[j] = v[mid + 1 + j];
+    
+//         // Merge the temporary arrays back into v[left..right]
+//         let i = 0, j = 0, k = left;
+//         while (i < n1 && j < n2) {
+//             moves.push({ indices: [left + i, mid + 1 + j], type: "comp" });
+//             if (L[i] <= R[j]) {
+//                 v[k] = L[i];
+//                 moves.push({ indices: [k, left+i], type: "move"}); // Track the move
+//                 i++;
+//             } else {
+//                 v[k] = R[j];
+//                 moves.push({ indices: [k, mid+j+1], type: "move"}); // Track the move
+//                 j++;
+//             }
+//             k++;
+//         }
+    
+//         // Copy the remaining elements of L[], if any
+//         while (i < n1) {
+//             v[k] = L[i];
+//             moves.push({ indices: [k, left+i], type: "move"}); // Track the move
+//             k++;
+//             i++;
+//         }
+    
+//         // Copy the remaining elements of R[], if any
+//         while (j < n2) {
+//             v[k] = R[j];
+//             moves.push({ indices: [k, mid+j+1], type: "move"}); // Track the move
+//             k++;
+//             j++;
+//         }
+//     };
+    
+//     const mergeSortHelper = (v, left, right) => {
+//         if (left < right) {
+//             let mid = Math.floor((left + right) / 2);
+    
+//             // Recursively sort first and second halves
+//             mergeSortHelper(v, left, mid);
+//             mergeSortHelper(v, mid + 1, right);
+    
+//             // Merge the sorted halves
+//             merge(v, left, mid, right);
+//         }
+//     };
+
+//     mergeSortHelper(arr, 0, arr.length-1);
+//     console.log(moves);
+    
+//     return moves;
+// };
+
+// const mergeSort = (arr) => {
+//     let moves = [];
+
+//     const merge = (arr, left, mid, right) => {
+//         let i = left, j = mid + 1, k = left;
+//         let tempArr = [];
+
+//         // Compare and merge the two halves
+//         while (i <= mid && j <= right) {
+//             moves.push({ indices: [i, j], type: "comp" });
+//             if (arr[i] <= arr[j]) {
+//                 tempArr.push(arr[i]);
+//                 moves.push({ indices: [k, i], type: "move" });
+//                 i++;
+//             } else {
+//                 tempArr.push(arr[j]);
+//                 moves.push({ indices: [k, j], type: "move" });
+//                 j++;
+//             }
+//             k++;
+//         }
+
+//         // Copy any remaining elements from the left half
+//         while (i <= mid) {
+//             tempArr.push(arr[i]);
+//             moves.push({ indices: [k, i], type: "move" });
+//             i++;
+//             k++;
+//         }
+
+//         // Copy any remaining elements from the right half
+//         while (j <= right) {
+//             tempArr.push(arr[j]);
+//             moves.push({ indices: [k, j], type: "move" });
+//             j++;
+//             k++;
+//         }
+
+//         // Copy the merged array back into the original array
+//         for (let i = left; i <= right; i++) {
+//             arr[i] = tempArr[i - left];
+//         }
+//     };
+
+//     const mergeSortHelper = (arr, left, right) => {
+//         if (left < right) {
+//             let mid = Math.floor((left + right) / 2);
+//             mergeSortHelper(arr, left, mid);
+//             mergeSortHelper(arr, mid + 1, right);
+//             merge(arr, left, mid, right);
+//         }
+//     };
+
+//     mergeSortHelper(arr, 0, arr.length - 1);
+//     return moves;
+// };
+
 
 function sortingProcess(sortAlgo, algoText, timeSpace){
     let copyArr = [...arr];           
@@ -231,10 +380,13 @@ sortBtn.addEventListener("click", ()=>{
     if(selectedSortingTechnique === "BubbleSort"){
         sortingProcess(bubbleSort, "Bubble Sort", "bubbleSort");
     }else if (selectedSortingTechnique === "SelectionSort") {
-        sortingProcess(bubbleSort, "Selection Sort", "selectionSort");
+        sortingProcess(selectionSort, "Selection Sort", "selectionSort");
     } else if (selectedSortingTechnique === "InsertionSort") {
-        sortingProcess(bubbleSort, "Insertion Sort", "insertionSort");
+        sortingProcess(insertionSort, "Insertion Sort", "insertionSort");
     }
+    // else if (selectedSortingTechnique === "MergeSort") {
+    //     sortingProcess(mergeSort, "Merge Sort", "mergeSort");
+    // }
 });
 
 

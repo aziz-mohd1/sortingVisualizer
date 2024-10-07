@@ -5,45 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorting Visualizer</title>
     <link rel="stylesheet" href="./output.css">
+    
 </head>
 <body>
-    <div class="wrapper w-full h-[100vh] p-3 flex overflow-hidden text-white bg-[#080808]">
+    <div class="wrapper w-full h-[100vh] p-3 flex overflow-hidden text-white bg-[#C87AFF]">
         <!-- left section -->
         <section class="leftSection w-[25%] h-full rounded-l-xl border-zinc-400 border-s-2 shadow-2xl  bg-[#171717]">
             <!-- heading -->
-            <h2 class="heading text-[4rem] text-center font-bold ">Sorting</h2>
-            <h3 class="heading text-[1.5rem] text-center mt-[-1.5rem] ">visualizer</h3>
+            <h2 class="heading text-[2rem] text-center font-bold mt-[1rem]">Sorting</h2>
+            <h3 class="heading text-[1rem] text-center mt-[-.9rem] ">visualizer</h3>
 
             <!-- size of array -->
             <div class="slider_buttons w-[90%] h-[85%] mx-auto pt-7">
 
                 <div class="flex flex-col">
 
-                    <label for="sizeOfArray" class="pb-3">Size of the Array: </label>
+                    <label for="sizeOfArray" class="pb-3 text-[.7rem] font-thin mt-4">Size of the Array: </label>
 
-                    <div class="box flex justify-center items-center w-full h-full  p-2 rounded-md mt-[-0.5rem] mb-[-0.1rem] shadow-[0_5px_10px_gray]">
+                    <div class="box flex justify-center items-center w-full h-full  p-2 rounded-md mt-[-0.5rem] shadow-[0_5px_10px_gray]">
 
                         <input type="range" class="slider1 w-[80%] h-[10px] mr-2 ml-3 rounded-lg appearance-none outline-none shadow-customLight" min="5" max="100" value = "20">
 
-                        <div class="myText1 ml-3 text-[25px] text-blue-300 font-bold w-10">50</div>
+                        <div class="myText1 ml-3 text-[1.2rem] text-blue-300 w-10">50</div>
 
                     </div>
 
                 </div>
 
                 <!-- randomize array button -->
-                <button class="RandomizeArray bg-blue-500 w-full h-[10%] rounded-md mt-4 text-white mb-[-0.5rem]">Randomize Array!</button>
+                <button class="RandomizeArray bg-blue-500 w-full h-[10%] rounded-md mt-4 text-white text-[.6rem]">Randomize Array!</button>
 
                 <!-- speed of sort -->
                 <div class="flex flex-col mt-5">
 
-                    <label for="speedOfAlgorithm" class="pb-3 mb-[-0.5rem]">Speed of the Algorithm: </label>
+                    <label for="speedOfAlgorithm" class="pb-3 text-[.7rem] font-thin mt-3">Speed of the Algorithm: </label>
 
                     <div class="box flex justify-center items-center w-full h-full p-2 rounded-md shadow-[0_5px_10px_gray]">
 
                         <input type="range" class="slider2 w-[80%] h-[10px] mr-2 ml-3 rounded-lg appearance-none outline-none shadow-customLight" min="1" max="5" value = "2" step="1">
 
-                        <div class="myText2 ml-3 text-[25px] text-blue-300 font-bold w-10">2x</div>
+                        <div class="myText2 ml-3 text-[1.2rem] text-blue-300 w-10">2x</div>
 
                     </div>  
 
@@ -51,30 +52,30 @@
                 
                 <!-- sorting options -->
                 <div class="flex flex-col w-full h-full">
-                    <label for="sizeOfArray" class="pb-3 mt-4 mb-[-0.5rem]">Sort using: </label>
-                    <select name="sortingDropdown" id="sortingDropdown" class="bg-blue-500 w-[100%] h-[10%] rounded-md mb-2 mt-1 text-white px-4 border-none text-[0.99rem]">
+                    <label for="sizeOfArray" class="pb-3 mt-5 text-[.7rem] font-thin">Sort using: </label>
+                    <select name="sortingDropdown" id="sortingDropdown" class="bg-blue-500 w-[100%] h-[10%] rounded-md text-white px-4 border-none text-[.6rem]">
                     
                         <option value="whichSortingTechnique" >Which Sorting Technique?</option>
                         <option value="BubbleSort" >Bubble Sort</option>
                         <option value="SelectionSort">Selection Sort</option>
                         <option value="InsertionSort">Insertion Sort</option>
-                        <!-- <option value="MergeSort" >Merge Sort</option>
-                        <option value="QuickSort" >Quick Sort</option> -->
+                        <!-- <option value="MergeSort" >Merge Sort</option> -->
+                        <!-- <option value="QuickSort" >Quick Sort</option> -->
                         
                     </select> 
 
                     <!-- Start Sorting btn -->
-                    <button class="StartSorting bg-[#86C232] w-full h-[10%] rounded-md mt-4 text-white mb-[-0.5rem]">Start Sorting!</button>
+                    <button class="StartSorting bg-[#86C232] w-full h-[10%] rounded-md mt-4 text-white mb-[-0.5rem] text-[.8rem]">Start Sorting!</button>
 
                     <!-- Author name -->
-                    <div class="author mt-[1.8rem] text-center text-[0.9rem]">Developed with 💖 by <em><a href="#">Mohd Azizullah</a></em></div>
+                    <div class="author mt-[2rem] text-center text-[0.8rem]">Developed with 💖 by <em><a href="#">Mohd Azizullah</a></em></div>
                 </div>
                 
             </div>
         </section>
 
         <!-- right section -->
-        <section class="rightSection w-[75%] h-full rounded-r-xl">
+        <section class="rightSection w-[75%] h-full rounded-r-xl relative">
             <!-- <div class="indicators w-full bg-orange-400 h-[10%] rounded-tr-xl "></div> -->
 
             <!-- bars div -->
@@ -82,27 +83,30 @@
 
             <!-- complexities table -->
             <div class="timeAndSpaceComplexities w-full h-[20%]">
-                <table class=" w-full h-full">
+                <table class="w-full h-full">
                     <tr class="bg-blue-400 text-left" >
-                        <th class="algoName text-center bg-[#6b6e70] text-white">Algorithm_Name</th>
-                        <th class="text-center border-r-[1px]">Best Case</th>
-                        <th class="text-center border-r-[1px]">Average Case</th>
-                        <th class="text-center">Worst Case</th>
+                        <th class="algoName text-center bg-[#6b6e70] text-white text-[.75rem] font-thin">Algorithm_Name</th>
+                        <th class="text-center border-r-[1px] text-[.75rem] font-thin">Best Case</th>
+                        <th class="text-center border-r-[1px] text-[.75rem] font-thin">Average Case</th>
+                        <th class="text-center text-[.75rem] font-thin">Worst Case</th>
                     </tr>
                     <tr>
-                        <th class="bg-blue-400 text-center border-b-[1px]" >Time Complexity</th>
-                        <td class="bestTC text-center bg-[#6b6e70] border-r-[1px]  border-b-[1px] ">-</td>
-                        <td class="averageTC text-center bg-[#6b6e70]">-</td>
-                        <td class="worstTC text-center bg-[#6b6e70] border-l-[1px]  border-b-[1px] ">-</td>
+                        <th class="bg-blue-400 text-center border-b-[1px] text-[.75rem] font-thin" >Time Complexity</th>
+                        <td class="bestTC text-center bg-[#6b6e70] border-r-[1px]  border-b-[1px] text-[.7rem]">-</td>
+                        <td class="averageTC text-center bg-[#6b6e70] text-[.7rem]">-</td>
+                        <td class="worstTC text-center bg-[#6b6e70] border-l-[1px]  border-b-[1px] text-[.7rem]">-</td>
                     </tr>
                     <tr>
-                        <th class="bg-blue-400 text-center pl-1" >Space Complexity</th>
-                        <td class="bestSC text-center bg-[#6b6e70]">-</td>
-                        <td class="averageSC text-center bg-[#6b6e70] border-l-[1px]  border-t-[1px]  border-r-[1px] ">-</td>
-                        <td class="worstSC text-center bg-[#6b6e70]">-</td>
+                        <th class="bg-blue-400 text-center pl-1 text-[.75rem] font-thin" >Space Complexity</th>
+                        <td class="bestSC text-center bg-[#6b6e70] text-[.7rem]">-</td>
+                        <td class="averageSC text-center bg-[#6b6e70] border-l-[1px]  border-t-[1px]  border-r-[1px]  text-[.7rem]">-</td>
+                        <td class="worstSC text-center bg-[#6b6e70] text-[.7rem]">-</td>
                     </tr>
                     <tr></tr>
                 </table>
+            </div>
+            <div class="blackWhiteToggleBtn w-[3rem] h-[1.5rem] bg-white absolute top-0 right-0 flex justify-start items-center transition-all duration-500 ease-in border border-gray-500">
+                <div class="innerToggleBtn w-[1.3rem] h-[1rem] bg-black transition-all duration-500 ease-in-out"></div>
             </div>
         </section>
     </div>
